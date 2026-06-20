@@ -37,13 +37,19 @@
   nav a{ flex:0 0 auto; font-size:12.5px; font-weight:600; text-decoration:none; color:var(--txt);
     background:var(--card2); border:1px solid var(--line); padding:6px 12px; border-radius:999px; white-space:nowrap;}
 
-  .hero{ padding:20px 16px 6px;}
-  .hero h1{ font-size:30px; margin:0; font-weight:800; letter-spacing:-1px;}
+  .hero{ padding:18px 16px 6px; display:flex; gap:14px; align-items:center;}
+  .hero img{ width:84px;height:120px;object-fit:cover;border-radius:14px;border:2px solid rgba(245,158,11,.6); box-shadow:0 8px 22px rgba(0,0,0,.45); flex:0 0 auto;}
+  .hero h1{ font-size:27px; margin:0; font-weight:800; letter-spacing:-1px;}
   .hero h1 b{ background:linear-gradient(120deg,#60a5fa,#a78bfa,#f472b6); -webkit-background-clip:text; background-clip:text; color:transparent;}
   .hero .y{ font-size:13px; color:var(--mut); margin-top:2px;}
   .chips{ display:flex; flex-wrap:wrap; gap:7px; margin-top:12px;}
   .chips span{ font-size:11.5px; background:var(--card); border:1px solid var(--line); padding:5px 10px; border-radius:8px;}
   .chips b{ color:#fbbf24;}
+  .dl{ display:flex; gap:9px; padding:4px 16px 0;}
+  .dl a{ flex:1; display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--txt);
+    background:linear-gradient(135deg,#b45309,#f59e0b); border-radius:13px; padding:11px 13px; font-weight:700; font-size:13.5px;
+    box-shadow:0 6px 16px rgba(180,83,9,.35);}
+  .dl a .di{ font-size:19px;} .dl a small{ display:block; font-weight:500; font-size:11px; opacity:.92;}
 
   /* sections / accordions */
   main{ padding:8px 12px;}
@@ -139,7 +145,7 @@
 
 <header>
   <div class="ttl">Maths <b>Brevet</b> 2026</div>
-  <div class="sub">Fiches de révision · optimisé iPhone</div>
+  <div class="sub">Fiches de révision · #AIRHEAD4LIFE 🦸</div>
   <nav>
     <a href="#m1">Nombres</a><a href="#m2">Algèbre</a><a href="#m3">Proportions</a>
     <a href="#m4">Fonctions</a><a href="#m5">Stats/Probas</a><a href="#m6">Théorèmes</a>
@@ -148,9 +154,17 @@
 </header>
 
 <div class="hero">
-  <h1>Tout le programme,<br><b>dans ta poche</b> 📲</h1>
-  <div class="y">Diplôme National du Brevet · épreuve de 2 h · 100 points</div>
-  <div class="chips"><span>🧮 Calculatrice <b>OK</b></span><span>💻 1 exo <b>Scratch</b></span><span>👆 Touche un titre pour déplier</span></div>
+  <img src="airhead-portrait.jpg" alt="The Airhead">
+  <div>
+    <h1>Tout le programme,<br><b>dans ta poche</b> 📲</h1>
+    <div class="y">Brevet · épreuve de 2 h · 100 points</div>
+    <div class="chips"><span>🧮 Calculatrice <b>OK</b></span><span>🦸 <b>Airhead</b> edition</span></div>
+  </div>
+</div>
+
+<div class="dl">
+  <a href="Fiches_revision_maths_Brevet_2026.pdf" download><span class="di">📘</span><span>Fiches PDF<small>13 pages · à imprimer</small></span></a>
+  <a href="Antiseche_maths_Brevet_2026.pdf" download><span class="di">⚡</span><span>Antisèche<small>2 p · recto-verso</small></span></a>
 </div>
 
 <main>

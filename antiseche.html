@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Antisèche — Maths Brevet 2026</title>
+<style>
+  :root{
+    --bleu:#2563eb; --bleu-d:#1e3a8a; --bleu-l:#eaf1fe;
+    --vert:#059669; --vert-l:#e6f7f0;
+    --orange:#ea580c; --orange-l:#fdeede;
+    --violet:#7c3aed; --violet-l:#f1e9fd;
+    --rose:#db2777; --rose-l:#fce7f1;
+    --rouge:#dc2626; --rouge-l:#fdeaea;
+    --encre:#0f172a; --gris:#64748b; --trait:#e2e8f0;
+  }
+  *{box-sizing:border-box;}
+  @page{ size:A4; margin:7mm 7mm 6mm 7mm; }
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Inter","SF Pro Display","Helvetica Neue",Arial,sans-serif;
+    color:var(--encre); font-size:8.3px; line-height:1.3;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .page{ page-break-after:always; }
+  .page:last-child{ page-break-after:auto; }
+
+  .banner{ color:#fff; border-radius:10px; padding:7px 13px; margin:0 0 7px;
+    display:flex; align-items:center; gap:10px; box-shadow:0 2px 7px rgba(15,23,42,.18);}
+  .banner .ic{ width:28px;height:28px;border-radius:50%;object-fit:cover;object-position:50% 22%;
+    border:2px solid #f59e0b; flex:0 0 auto;}
+  .banner h1{ font-size:13px; margin:0; font-weight:800; letter-spacing:-.2px;}
+  .banner .s{ font-size:8.6px; opacity:.9; font-weight:500; margin-left:auto; text-align:right;}
+  .p1{ background:radial-gradient(circle at 90% 0%,#7c3aed 0%,transparent 60%),linear-gradient(100deg,#1e3a8a,#2563eb 70%);}
+  .p2{ background:radial-gradient(circle at 90% 0%,#2563eb 0%,transparent 60%),linear-gradient(100deg,#065f46,#059669 70%);}
+
+  .grid{ column-count:3; column-gap:6px; }
+  .box{ break-inside:avoid; border-radius:8px; margin:0 0 6px; background:#fff; overflow:hidden;
+    border:1px solid var(--trait); box-shadow:0 1px 3px rgba(15,23,42,.06);}
+  .box .h{ font-size:8.6px; font-weight:700; padding:3px 7px; display:flex; align-items:center; gap:5px;}
+  .box .h .d{ width:14px;height:14px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#fff;flex:0 0 auto;}
+  .box .bd{ padding:3px 7px 4px;}
+  .b .h{background:var(--bleu-l);color:var(--bleu-d);} .b .h .d{background:var(--bleu);}
+  .g .h{background:var(--vert-l);color:#065f46;} .g .h .d{background:var(--vert);}
+  .o .h{background:var(--orange-l);color:#9a3412;} .o .h .d{background:var(--orange);}
+  .v .h{background:var(--violet-l);color:#5b21b6;} .v .h .d{background:var(--violet);}
+  .r .h{background:var(--rose-l);color:#9d174d;} .r .h .d{background:var(--rose);}
+  .rd .h{background:var(--rouge-l);color:#991b1b;} .rd .h .d{background:var(--rouge);}
+
+  ul{ margin:2px 0; padding-left:12px;} li{ margin:1px 0;} p{ margin:2px 0;}
+  .f{ background:linear-gradient(180deg,#f8fafc,#eef2ff); border:1px solid #dbe4f3; border-radius:5px;
+    padding:2px 5px; margin:2px 0; text-align:center; color:var(--bleu-d); font-weight:700; font-size:8.4px;}
+  .f.v{ background:linear-gradient(180deg,#f0fdf8,#e6f7f0); border-color:#bbf0d5; color:#065f46;}
+  .f.o{ background:linear-gradient(180deg,#fff7ed,#fdeede); border-color:#f6d2ad; color:#9a3412;}
+  .f.p{ background:linear-gradient(180deg,#faf5ff,#f1e9fd); border-color:#ddc8f7; color:#5b21b6;}
+  .warn{ color:#991b1b; font-size:7.4px; margin:2px 0;}
+  .ok{ color:#065f46; font-size:7.4px; margin:2px 0;}
+  .frac{ display:inline-block; text-align:center; vertical-align:middle; margin:0 1px;}
+  .frac .n{ display:block; border-bottom:1.1px solid currentColor; padding:0 3px; line-height:1.1;}
+  .frac .d{ display:block; padding:0 3px; line-height:1.1;}
+  table{ border-collapse:collapse; width:100%; font-size:7.4px; margin:2px 0;}
+  td,th{ border:1px solid var(--trait); padding:1px 3px; text-align:center;}
+  th{ background:var(--bleu-l); color:var(--bleu-d);}
+  .kbd{ background:#f1f5f9; border:1px solid var(--trait); border-radius:3px; padding:0 3px; font-family:monospace; font-size:7.4px;}
+  .sch{ text-align:center; margin:2px 0;}
+  b{color:var(--encre);}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 (RECTO) ============ -->
+<section class="page">
+  <div class="banner p1"><img class="ic" src="airhead-portrait.jpg" alt=""><h1>ANTISÈCHE MATHS · BREVET 2026</h1>
+    <div class="s">RECTO · #AIRHEAD4LIFE<br>Nombres · Algèbre · Proportions · Fonctions</div></div>
+
+  <div class="grid">
+    <div class="box b"><div class="h"><span class="d">➗</span>Fractions</div><div class="bd">
+      <div class="f"><span class="frac"><span class="n">a</span><span class="d">b</span></span>+<span class="frac"><span class="n">c</span><span class="d">b</span></span>=<span class="frac"><span class="n">a+c</span><span class="d">b</span></span></div>
+      <div class="f"><span class="frac"><span class="n">a</span><span class="d">b</span></span>÷<span class="frac"><span class="n">c</span><span class="d">d</span></span>=<span class="frac"><span class="n">a</span><span class="d">b</span></span>×<span class="frac"><span class="n">d</span><span class="d">c</span></span></div>
+      <div class="warn">⚠ jamais simplifier à travers + ou −</div>
+    </div></div>
+
+    <div class="box b"><div class="h"><span class="d">⏫</span>Puissances</div><div class="bd">
+      <ul><li>aᵐ×aⁿ=a<sup>m+n</sup></li><li>aᵐ÷aⁿ=a<sup>m−n</sup></li><li>(aᵐ)ⁿ=a<sup>mn</sup></li>
+        <li>a⁻ⁿ=<span class="frac"><span class="n">1</span><span class="d">aⁿ</span></span> · a⁰=1</li></ul>
+      <div class="warn">⚠ (−3)²=9 ≠ −3²=−9</div>
+    </div></div>
+
+    <div class="box b"><div class="h"><span class="d">🔬</span>Notation scientif.</div><div class="bd">
+      <div class="f">a×10ⁿ, 1≤a&lt;10</div>
+      <p>38400=3,84×10⁴<br>0,00057=5,7×10⁻⁴</p>
+    </div></div>
+
+    <div class="box v"><div class="h"><span class="d">🔢</span>PGCD (Euclide)</div><div class="bd">
+      <p>divise, garde le reste, recommence → dernier reste ≠0.</p>
+      <p>PGCD(60;36)=12</p>
+      <div class="f p">irréductible : ÷ par PGCD</div>
+    </div></div>
+
+    <div class="box o"><div class="h"><span class="d">🧮</span>Priorités</div><div class="bd">
+      <p>( ) → puissances → ×÷ → +−</p>
+      <p>5+3×2²=5+12=<b>17</b></p>
+    </div></div>
+
+    <div class="box g"><div class="h"><span class="d">📤</span>Développer</div><div class="bd">
+      <div class="f v">k(a+b)=ka+kb</div>
+      <div class="f v">(a+b)(c+d)=ac+ad+bc+bd</div>
+    </div></div>
+
+    <div class="box g"><div class="h"><span class="d">📥</span>Factoriser</div><div class="bd">
+      <div class="f v">ka+kb=k(a+b)</div>
+      <p>5x+15=5(x+3)</p>
+    </div></div>
+
+    <div class="box o"><div class="h"><span class="d">⭐</span>Identités</div><div class="bd">
+      <div class="f o">(a+b)²=a²+2ab+b²</div>
+      <div class="f o">(a−b)²=a²−2ab+b²</div>
+      <div class="f o">(a+b)(a−b)=a²−b²</div>
+    </div></div>
+
+    <div class="box b"><div class="h"><span class="d">⚖️</span>Équations</div><div class="bd">
+      <p>1er degré : isoler x. 3x−5=7 → x=4</p>
+      <div class="f">A×B=0 ⇔ A=0 ou B=0</div>
+      <div class="ok">✔ factoriser avant produit nul</div>
+    </div></div>
+
+    <div class="box o"><div class="h"><span class="d">✖️</span>Proportionnalité</div><div class="bd">
+      <div class="f o">x=<span class="frac"><span class="n">a×d</span><span class="d">b</span></span> (produit en croix)</div>
+      <p>4 stylos=6€ → 10=15€</p>
+    </div></div>
+
+    <div class="box o"><div class="h"><span class="d">％</span>Pourcentages</div><div class="bd">
+      <ul><li>t% de N : ×<span class="frac"><span class="n">t</span><span class="d">100</span></span></li>
+        <li>+20%→×1,20 · −15%→×0,85</li><li>2 évols → on multiplie</li></ul>
+      <div class="warn">⚠ +10% puis −10% = ×0,99</div>
+    </div></div>
+
+    <div class="box g"><div class="h"><span class="d">🚗</span>Vitesse &amp; échelle</div><div class="bd">
+      <div class="f v">v=<span class="frac"><span class="n">d</span><span class="d">t</span></span> · d=v·t · t=<span class="frac"><span class="n">d</span><span class="d">v</span></span></div>
+      <p>km/h↔m/s : ÷3,6 / ×3,6</p>
+      <div class="f v">éch=<span class="frac"><span class="n">plan</span><span class="d">réel</span></span> (même unité)</div>
+    </div></div>
+
+    <div class="box v"><div class="h"><span class="d">📦</span>Fonctions — vocab</div><div class="bd">
+      <ul><li><b>Image</b> de x : calcule f(x)</li><li><b>Antécédent</b> de y : résous f(x)=y</li></ul>
+      <p>f(x)=2x+1 : f(3)=7 ; antéc.9→x=4</p>
+    </div></div>
+
+    <div class="box v"><div class="h"><span class="d">📉</span>Linéaire / Affine</div><div class="bd">
+      <div class="sch">
+        <svg viewBox="0 0 150 92" width="118">
+          <line x1="16" y1="80" x2="142" y2="80" stroke="#94a3b8" stroke-width="1.2"/>
+          <line x1="16" y1="84" x2="16" y2="8" stroke="#94a3b8" stroke-width="1.2"/>
+          <line x1="28" y1="58" x2="134" y2="16" stroke="#7c3aed" stroke-width="2"/>
+          <circle cx="16" cy="52" r="2.3" fill="#dc2626"/>
+          <text x="5" y="55" font-size="8" fill="#dc2626">b</text>
+          <text x="100" y="28" font-size="7.5" fill="#7c3aed">pente a</text>
+          <text x="134" y="78" font-size="7.5" fill="#64748b">x</text>
+          <text x="5" y="14" font-size="7.5" fill="#64748b">y</text>
+        </svg>
+      </div>
+      <div class="f p">linéaire ax → par O · affine ax+b</div>
+      <div class="f p">a=<span class="frac"><span class="n">y<sub>B</sub>−y<sub>A</sub></span><span class="d">x<sub>B</sub>−x<sub>A</sub></span></span></div>
+      <div class="ok">✔ a&gt;0 monte · a&lt;0 descend</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ PAGE 2 (VERSO) ============ -->
+<section class="page">
+  <div class="banner p2"><img class="ic" src="airhead-portrait.jpg" alt=""><h1>ANTISÈCHE MATHS · BREVET 2026</h1>
+    <div class="s">VERSO · #AIRHEAD4LIFE<br>Géométrie · Stats &amp; probas · Grandeurs · Algo</div></div>
+
+  <div class="grid">
+    <div class="box b"><div class="h"><span class="d">📐</span>Pythagore</div><div class="bd">
+      <div class="sch">
+        <svg viewBox="0 0 150 88" width="120">
+          <polygon points="20,72 130,72 20,14" fill="#eaf1fe" stroke="#2563eb" stroke-width="1.8"/>
+          <rect x="20" y="62" width="10" height="10" fill="none" stroke="#2563eb" stroke-width="1.4"/>
+          <text x="80" y="50" font-size="8" fill="#dc2626" transform="rotate(-28 80,50)">hyp</text>
+        </svg>
+      </div>
+      <div class="f">hyp²=côté²+côté²</div>
+      <div class="ok">✔ Récip. : grand côté²=somme 2 autres ⇒ rectangle</div>
+    </div></div>
+
+    <div class="box g"><div class="h"><span class="d">📏</span>Thalès</div><div class="bd">
+      <div class="sch">
+        <svg viewBox="0 0 150 88" width="120">
+          <line x1="75" y1="8" x2="25" y2="80" stroke="#059669" stroke-width="1.5"/>
+          <line x1="75" y1="8" x2="125" y2="80" stroke="#059669" stroke-width="1.5"/>
+          <line x1="52" y1="42" x2="98" y2="42" stroke="#dc2626" stroke-width="1.8"/>
+          <line x1="33" y1="70" x2="117" y2="70" stroke="#2563eb" stroke-width="1.8"/>
+          <text x="68" y="8" font-size="7.5">A</text>
+          <text x="42" y="42" font-size="7.5" fill="#dc2626">B</text><text x="100" y="42" font-size="7.5" fill="#dc2626">C</text>
+          <text x="22" y="80" font-size="7.5" fill="#2563eb">D</text><text x="119" y="80" font-size="7.5" fill="#2563eb">E</text>
+        </svg>
+      </div>
+      <div class="f v"><span class="frac"><span class="n">AB</span><span class="d">AD</span></span>=<span class="frac"><span class="n">AC</span><span class="d">AE</span></span>=<span class="frac"><span class="n">BC</span><span class="d">DE</span></span></div>
+      <div class="ok">✔ Récip. : rapports égaux + même ordre ⇒ //</div>
+    </div></div>
+
+    <div class="box o"><div class="h"><span class="d">📐</span>Trigo · SOH CAH TOA</div><div class="bd">
+      <div class="sch">
+        <svg viewBox="0 0 150 88" width="120">
+          <polygon points="20,72 130,72 130,16" fill="#fdeede" stroke="#ea580c" stroke-width="1.8"/>
+          <rect x="120" y="62" width="10" height="10" fill="none" stroke="#ea580c" stroke-width="1.4"/>
+          <path d="M 45 72 A 25 25 0 0 1 39 54" fill="none" stroke="#7c3aed" stroke-width="1.4"/>
+          <text x="32" y="66" font-size="8" fill="#7c3aed">Â</text>
+        </svg>
+      </div>
+      <div class="f o">cos=<span class="frac"><span class="n">adj</span><span class="d">hyp</span></span> · sin=<span class="frac"><span class="n">opp</span><span class="d">hyp</span></span> · tan=<span class="frac"><span class="n">opp</span><span class="d">adj</span></span></div>
+      <p>angle : <span class="kbd">cos⁻¹</span> <span class="kbd">sin⁻¹</span> <span class="kbd">tan⁻¹</span></p>
+    </div></div>
+
+    <div class="box rd"><div class="h"><span class="d">🧭</span>Quel outil ?</div><div class="bd">
+      <table><tr><th>Je cherche</th><th>Outil</th></tr>
+        <tr><td>côté (2 côtés)</td><td>Pythagore</td></tr>
+        <tr><td>côté + angle</td><td>Trigo</td></tr>
+        <tr><td>longueur //</td><td>Thalès</td></tr>
+        <tr><td>angle droit ?</td><td>Récip. Pyth.</td></tr></table>
+    </div></div>
+
+    <div class="box b"><div class="h"><span class="d">📊</span>Statistiques</div><div class="bd">
+      <div class="f">moyenne=<span class="frac"><span class="n">somme</span><span class="d">effectif</span></span></div>
+      <ul><li><b>Médiane</b> : milieu (ordonnée)</li><li><b>Étendue</b>=max−min</li></ul>
+    </div></div>
+
+    <div class="box v"><div class="h"><span class="d">🎲</span>Probabilités</div><div class="bd">
+      <div class="f p">P=<span class="frac"><span class="n">favorables</span><span class="d">possibles</span></span></div>
+      <ul><li>0≤P≤1 · P(contraire)=1−P</li><li>arbre : × le long, + entre branches</li></ul>
+    </div></div>
+
+    <div class="box b"><div class="h"><span class="d">⬜</span>Aires</div><div class="bd">
+      <ul><li>Rectangle : L×l</li><li>Triangle : <span class="frac"><span class="n">b×h</span><span class="d">2</span></span></li>
+        <li>Disque : πr² · Cercle : 2πr</li></ul>
+    </div></div>
+
+    <div class="box g"><div class="h"><span class="d">🧊</span>Volumes</div><div class="bd">
+      <ul><li>Pavé : L×l×h</li><li>Cylindre : πr²h</li>
+        <li>Pyr./cône : <span class="frac"><span class="n">base×h</span><span class="d">3</span></span></li><li>Boule : <span class="frac"><span class="n">4</span><span class="d">3</span></span>πr³</li></ul>
+      <div class="warn">⚠ 1 L=1 dm³ · 1 m³=1000 L</div>
+    </div></div>
+
+    <div class="box o"><div class="h"><span class="d">🔍</span>Agrandissement k</div><div class="bd">
+      <table><tr><th>Grandeur</th><th>×</th></tr>
+        <tr><td>Longueurs</td><td>k</td></tr><tr><td>Aires</td><td>k²</td></tr><tr><td>Volumes</td><td>k³</td></tr></table>
+    </div></div>
+
+    <div class="box v"><div class="h"><span class="d">🔄</span>Transformations</div><div class="bd">
+      <ul><li>Sym. axiale / centrale</li><li>Translation (glissement)</li>
+        <li>Rotation (centre+angle)</li><li>Homothétie (k : taille change)</li></ul>
+      <div class="ok">✔ conservent angles &amp; alignement</div>
+    </div></div>
+
+    <div class="box v"><div class="h"><span class="d">💻</span>Algo / Scratch</div><div class="bd">
+      <ul><li><b>Variable</b>=boîte (mettre à…)</li><li>répéter n fois / jusqu'à…</li>
+        <li>si…alors…sinon</li><li>carré : répéter 4 [avancer·tourner 90°]</li></ul>
+      <div class="ok">✔ tableau d'évolution : 1 ligne / tour</div>
+    </div></div>
+
+    <div class="box rd"><div class="h"><span class="d">✅</span>Réflexes jour J</div><div class="bd">
+      <ul><li>Cite le théorème avant le calcul</li><li>Unités + phrase de conclusion</li>
+        <li>Vérifie l'ordre de grandeur</li><li>Aucune question vide</li></ul>
+    </div></div>
+  </div>
+</section>
+
+</body>
+</html>
