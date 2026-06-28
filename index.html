@@ -132,6 +132,20 @@
   #install .x{ margin-left:auto; flex:0 0 auto; width:26px;height:26px;border-radius:50%;
     background:rgba(255,255,255,.22); border:none; color:#fff; font-size:15px; line-height:1; cursor:pointer;}
 </style>
+
+<style id="qcm-badges-css">
+#mq .qscore{margin:12px 0 6px;padding:10px 12px;border-radius:14px;background:rgba(244,114,182,.12);border:1px solid rgba(244,114,182,.4);font-size:14px;text-align:center}
+#mq .qscore .bar{height:8px;border-radius:6px;background:rgba(148,163,184,.25);margin-top:7px;overflow:hidden}
+#mq .qscore .bar i{display:block;height:100%;width:0;border-radius:6px;background:linear-gradient(90deg,#f472b6,#a855f7);transition:width .35s}
+#mq .badges{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 2px}
+#mq .bdg{flex:1 1 30%;min-width:96px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:9px 6px;border-radius:14px;background:rgba(148,163,184,.12);border:1px solid rgba(148,163,184,.28);opacity:.45;filter:grayscale(1);transition:.25s;font-size:24px;line-height:1.1}
+#mq .bdg span{font-size:12px;font-weight:800}
+#mq .bdg i{font-size:10px;opacity:.75;font-style:normal;text-align:center}
+#mq .bdg.earned{opacity:1;filter:none;background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.55);box-shadow:0 6px 18px rgba(34,197,94,.22);transform:translateY(-2px)}
+#mq .bdg.earned.hero{background:rgba(168,85,247,.18);border-color:rgba(168,85,247,.6);box-shadow:0 6px 20px rgba(168,85,247,.28)}
+#mq .q.gd label:has(input[data-ok]){background:rgba(34,197,94,.16);border-color:rgba(34,197,94,.55)}
+#mq .q.bd label.pick{background:rgba(239,68,68,.16);border-color:rgba(239,68,68,.5)}
+</style>
 </head>
 <body>
 
@@ -326,43 +340,51 @@
 
 <!-- QCM -->
 <details id="mq" class="s-rose"><summary><span class="ico">❓</span>QCM d'auto-évaluation<span class="cv">›</span></summary><div class="sec">
-  <div class="q"><div class="qq"><span class="qn">1</span>−3² vaut :</div>
-    <label><input type="radio" name="q1">9</label><label><input type="radio" name="q1">−9</label><label><input type="radio" name="q1">6</label></div>
-  <div class="q"><div class="qq"><span class="qn">2</span>2⁵ × 2³ =</div>
-    <label><input type="radio" name="q2">2⁸</label><label><input type="radio" name="q2">2¹⁵</label><label><input type="radio" name="q2">4⁸</label></div>
-  <div class="q"><div class="qq"><span class="qn">3</span>x² − 25 factorisé :</div>
-    <label><input type="radio" name="q3">(x−5)²</label><label><input type="radio" name="q3">(x−5)(x+5)</label><label><input type="radio" name="q3">x(x−25)</label></div>
-  <div class="q"><div class="qq"><span class="qn">4</span>Un prix +30 %, on multiplie par :</div>
-    <label><input type="radio" name="q4">0,30</label><label><input type="radio" name="q4">1,03</label><label><input type="radio" name="q4">1,30</label></div>
-  <div class="q"><div class="qq"><span class="qn">5</span>54 km/h en m/s :</div>
-    <label><input type="radio" name="q5">15</label><label><input type="radio" name="q5">150</label><label><input type="radio" name="q5">194,4</label></div>
-  <div class="q"><div class="qq"><span class="qn">6</span>f(x)=2x+3, image de 4 :</div>
-    <label><input type="radio" name="q6">8</label><label><input type="radio" name="q6">11</label><label><input type="radio" name="q6">14</label></div>
-  <div class="q"><div class="qq"><span class="qn">7</span>Triangle rectangle, côtés 5 et 12. Hypoténuse :</div>
-    <label><input type="radio" name="q7">13</label><label><input type="radio" name="q7">17</label><label><input type="radio" name="q7">169</label></div>
-  <div class="q"><div class="qq"><span class="qn">8</span>Solide agrandi par k=2 : volume ×</div>
-    <label><input type="radio" name="q8">2</label><label><input type="radio" name="q8">4</label><label><input type="radio" name="q8">8</label></div>
+  <div class="q"><div class="qq"><span class="qn">1</span>−3² vaut :</div><label><input type="radio" name="q1">9</label><label><input type="radio" name="q1" data-ok="1">−9</label><label><input type="radio" name="q1">6</label></div>
+  <div class="q"><div class="qq"><span class="qn">2</span>2⁵ × 2³ = :</div><label><input type="radio" name="q2" data-ok="1">2⁸</label><label><input type="radio" name="q2">2¹⁵</label><label><input type="radio" name="q2">4⁸</label></div>
+  <div class="q"><div class="qq"><span class="qn">3</span>La forme factorisée de x² − 25 est :</div><label><input type="radio" name="q3">(x−5)²</label><label><input type="radio" name="q3" data-ok="1">(x−5)(x+5)</label><label><input type="radio" name="q3">x(x−25)</label></div>
+  <div class="q"><div class="qq"><span class="qn">4</span>Solution de 3x − 5 = 7 :</div><label><input type="radio" name="q4" data-ok="1">x = 4</label><label><input type="radio" name="q4">x = 2</label><label><input type="radio" name="q4">x = 12</label></div>
+  <div class="q"><div class="qq"><span class="qn">5</span>Un prix augmente de 30 %. On multiplie par :</div><label><input type="radio" name="q5">0,30</label><label><input type="radio" name="q5">1,03</label><label><input type="radio" name="q5" data-ok="1">1,30</label></div>
+  <div class="q"><div class="qq"><span class="qn">6</span>54 km/h en m/s :</div><label><input type="radio" name="q6" data-ok="1">15</label><label><input type="radio" name="q6">150</label><label><input type="radio" name="q6">194,4</label></div>
+  <div class="q"><div class="qq"><span class="qn">7</span>f(x)=2x+3. L'image de 4 est :</div><label><input type="radio" name="q7">8</label><label><input type="radio" name="q7" data-ok="1">11</label><label><input type="radio" name="q7">14</label></div>
+  <div class="q"><div class="qq"><span class="qn">8</span>Une fonction linéaire est représentée par une droite qui :</div><label><input type="radio" name="q8" data-ok="1">passe par l'origine</label><label><input type="radio" name="q8">est horizontale</label><label><input type="radio" name="q8">coupe l'axe y en b</label></div>
+  <div class="q"><div class="qq"><span class="qn">9</span>Médiane de 4, 7, 9, 12, 15 :</div><label><input type="radio" name="q9" data-ok="1">9</label><label><input type="radio" name="q9">9,4</label><label><input type="radio" name="q9">11</label></div>
+  <div class="q"><div class="qq"><span class="qn">10</span>Dé à 6 faces : P(obtenir un multiple de 3) :</div><label><input type="radio" name="q10">1/6</label><label><input type="radio" name="q10" data-ok="1">1/3</label><label><input type="radio" name="q10">1/2</label></div>
+  <div class="q"><div class="qq"><span class="qn">11</span>Triangle rectangle, côtés 5 et 12. Hypoténuse :</div><label><input type="radio" name="q11" data-ok="1">13</label><label><input type="radio" name="q11">17</label><label><input type="radio" name="q11">169</label></div>
+  <div class="q"><div class="qq"><span class="qn">12</span>On agrandit un solide par k = 2. Son volume est multiplié par :</div><label><input type="radio" name="q12">2</label><label><input type="radio" name="q12">4</label><label><input type="radio" name="q12" data-ok="1">8</label></div>
+  <div class="q"><div class="qq"><span class="qn">13</span>PGCD de 24 et 36 :</div><label><input type="radio" name="q13">6</label><label><input type="radio" name="q13" data-ok="1">12</label><label><input type="radio" name="q13">72</label></div>
+  <div class="q"><div class="qq"><span class="qn">14</span>Développer (x+3)² :</div><label><input type="radio" name="q14">x²+9</label><label><input type="radio" name="q14" data-ok="1">x²+6x+9</label><label><input type="radio" name="q14">x²+3x+9</label></div>
+  <div class="q"><div class="qq"><span class="qn">15</span>Prendre 25 % d'un nombre = multiplier par :</div><label><input type="radio" name="q15" data-ok="1">0,25</label><label><input type="radio" name="q15">4</label><label><input type="radio" name="q15">25</label></div>
+  <div class="q"><div class="qq"><span class="qn">16</span>Une fonction f(x)=5 est :</div><label><input type="radio" name="q16">linéaire</label><label><input type="radio" name="q16" data-ok="1">affine (constante)</label><label><input type="radio" name="q16">ni l'un ni l'autre</label></div>
+  <div class="q"><div class="qq"><span class="qn">17</span>La probabilité d'un événement certain vaut :</div><label><input type="radio" name="q17">0</label><label><input type="radio" name="q17">0,5</label><label><input type="radio" name="q17" data-ok="1">1</label></div>
+  <div class="q"><div class="qq"><span class="qn">18</span>3/4 + 1/4 =</div><label><input type="radio" name="q18">4/8</label><label><input type="radio" name="q18" data-ok="1">1</label><label><input type="radio" name="q18">3/16</label></div>
+  <div class="q"><div class="qq"><span class="qn">19</span>Somme des angles d'un triangle :</div><label><input type="radio" name="q19">90°</label><label><input type="radio" name="q19" data-ok="1">180°</label><label><input type="radio" name="q19">360°</label></div>
+  <div class="q"><div class="qq"><span class="qn">20</span>cos(60°) =</div><label><input type="radio" name="q20" data-ok="1">0,5</label><label><input type="radio" name="q20">1</label><label><input type="radio" name="q20">√3/2</label></div>
+  <div class="q"><div class="qq"><span class="qn">21</span>Volume d'un cube d'arête 3 cm :</div><label><input type="radio" name="q21">9</label><label><input type="radio" name="q21" data-ok="1">27</label><label><input type="radio" name="q21">18</label></div>
+  <div class="q"><div class="qq"><span class="qn">22</span>f linéaire avec f(2)=6 : coefficient =</div><label><input type="radio" name="q22">2</label><label><input type="radio" name="q22" data-ok="1">3</label><label><input type="radio" name="q22">6</label></div>
+  <div class="q"><div class="qq"><span class="qn">23</span>Moyenne de 6, 8 et 10 :</div><label><input type="radio" name="q23" data-ok="1">8</label><label><input type="radio" name="q23">24</label><label><input type="radio" name="q23">9</label></div>
+  <div class="q"><div class="qq"><span class="qn">24</span>Un entier est divisible par 3 si :</div><label><input type="radio" name="q24">il finit par 3</label><label><input type="radio" name="q24" data-ok="1">la somme de ses chiffres l'est</label><label><input type="radio" name="q24">il est pair</label></div>
+  <div class="q"><div class="qq"><span class="qn">25</span>🔥 Forme développée de (2x−3)² :</div><label><input type="radio" name="q25" data-ok="1">4x²−12x+9</label><label><input type="radio" name="q25">4x²−9</label><label><input type="radio" name="q25">2x²−6x+9</label></div>
+  <div class="q"><div class="qq"><span class="qn">26</span>🔥 PPCM de 6 et 8 :</div><label><input type="radio" name="q26" data-ok="1">24</label><label><input type="radio" name="q26">48</label><label><input type="radio" name="q26">14</label></div>
+  <div class="q"><div class="qq"><span class="qn">27</span>🔥 Résoudre x² = 49 :</div><label><input type="radio" name="q27">x = 7</label><label><input type="radio" name="q27" data-ok="1">x = 7 ou x = −7</label><label><input type="radio" name="q27">x = ±24,5</label></div>
+  <div class="q"><div class="qq"><span class="qn">28</span>🔥 +20 % puis −20 % donne une variation de :</div><label><input type="radio" name="q28">0 %</label><label><input type="radio" name="q28" data-ok="1">−4 %</label><label><input type="radio" name="q28">+4 %</label></div>
+  <div class="q"><div class="qq"><span class="qn">29</span>🔥 tan(45°) =</div><label><input type="radio" name="q29" data-ok="1">1</label><label><input type="radio" name="q29">0,5</label><label><input type="radio" name="q29">√2</label></div>
+  <div class="q"><div class="qq"><span class="qn">30</span>🔥 Le théorème de Thalès exige des droites :</div><label><input type="radio" name="q30">perpendiculaires</label><label><input type="radio" name="q30" data-ok="1">parallèles</label><label><input type="radio" name="q30">sécantes seulement</label></div>
+  <div class="q"><div class="qq"><span class="qn">31</span>🔥 L'équation 2(x−3) = 2x − 5 admet :</div><label><input type="radio" name="q31">une solution</label><label><input type="radio" name="q31" data-ok="1">aucune solution</label><label><input type="radio" name="q31">une infinité</label></div>
+  <div class="q"><div class="qq"><span class="qn">32</span>🔥 Médiane de 1, 2, 3, 4, 100 :</div><label><input type="radio" name="q32" data-ok="1">3</label><label><input type="radio" name="q32">22</label><label><input type="radio" name="q32">4</label></div>
 
-    <div class="q"><div class="qq"><span class="qn">9</span>PGCD de 24 et 36 :</div>
-    <label><input type="radio" name="q9">6</label><label><input type="radio" name="q9">12</label><label><input type="radio" name="q9">72</label></div>
-    <div class="q"><div class="qq"><span class="qn">10</span>Développer (x+3)² :</div>
-    <label><input type="radio" name="q10">x²+9</label><label><input type="radio" name="q10">x²+6x+9</label><label><input type="radio" name="q10">x²+3x+9</label></div>
-    <div class="q"><div class="qq"><span class="qn">11</span>Prendre 25 % d'un nombre = multiplier par :</div>
-    <label><input type="radio" name="q11">0,25</label><label><input type="radio" name="q11">4</label><label><input type="radio" name="q11">25</label></div>
-    <div class="q"><div class="qq"><span class="qn">12</span>Une fonction f(x)=5 est :</div>
-    <label><input type="radio" name="q12">linéaire</label><label><input type="radio" name="q12">affine (constante)</label><label><input type="radio" name="q12">ni l'un ni l'autre</label></div>
-    <div class="q"><div class="qq"><span class="qn">13</span>La probabilité d'un événement certain vaut :</div>
-    <label><input type="radio" name="q13">0</label><label><input type="radio" name="q13">0,5</label><label><input type="radio" name="q13">1</label></div>
-    <div class="q"><div class="qq"><span class="qn">14</span>3/4 + 1/4 =</div>
-    <label><input type="radio" name="q14">4/8</label><label><input type="radio" name="q14">1</label><label><input type="radio" name="q14">3/16</label></div>
-    <div class="q"><div class="qq"><span class="qn">15</span>Somme des angles d'un triangle :</div>
-    <label><input type="radio" name="q15">90°</label><label><input type="radio" name="q15">180°</label><label><input type="radio" name="q15">360°</label></div>
-    <div class="q"><div class="qq"><span class="qn">16</span>cos(60°) =</div>
-    <label><input type="radio" name="q16">0,5</label><label><input type="radio" name="q16">1</label><label><input type="radio" name="q16">√3/2</label></div>
-  <details class="reveal"><summary>👁️ Afficher le corrigé</summary>
-    <div class="corr"><b>1.</b> −9 · <b>2.</b> 2⁸ · <b>3.</b> (x−5)(x+5) · <b>4.</b> ×1,30 · <b>5.</b> 15 (54÷3,6) · <b>6.</b> 11 · <b>7.</b> 13 (√169) · <b>8.</b> 8 (k³). · <b>9.</b> 12 · <b>10.</b> x²+6x+9 · <b>11.</b> 0,25 · <b>12.</b> affine constante · <b>13.</b> 1 · <b>14.</b> 1 · <b>15.</b> 180° · <b>16.</b> 0,5.</div>
-  </details>
-  <div class="ok" style="margin-top:10px;">✔ 14–16 : au top 🎉 · 8–13 : revois les fiches · &lt;8 : reprends depuis J-15.</div>
+  <div class="qscore" id="qstat">Réponds aux questions pour gagner des badges ! <span id="qnums"></span>
+    <div class="bar"><i id="qbar"></i></div></div>
+  <div class="badges">
+    <div class="bdg" data-b="b8">🥉<span>Échauffement</span><i>8 réponses</i></div>
+    <div class="bdg" data-b="b16">🥈<span>En forme</span><i>16 réponses</i></div>
+    <div class="bdg" data-b="ball">🥇<span>Marathon</span><i>les 32 !</i></div>
+    <div class="bdg" data-b="s75">🔥<span>Solide</span><i>≥ 75 % justes</i></div>
+    <div class="bdg" data-b="exp">⭐<span>Expert</span><i>≥ 90 % justes</i></div>
+    <div class="bdg hero" data-b="hero">🦸<span>AIRHEAD4LIFE</span><i>tout + ≥ 90 %</i></div>
+  </div>
+  <details class="reveal"><summary>👁️ Afficher le corrigé</summary><div class="corr"><b>1.</b> −9 · <b>2.</b> 2⁸ · <b>3.</b> (x−5)(x+5) · <b>4.</b> x = 4 · <b>5.</b> 1,30 · <b>6.</b> 15 · <b>7.</b> 11 · <b>8.</b> passe par l'origine · <b>9.</b> 9 · <b>10.</b> 1/3 · <b>11.</b> 13 · <b>12.</b> 8 · <b>13.</b> 12 · <b>14.</b> x²+6x+9 · <b>15.</b> 0,25 · <b>16.</b> affine (constante) · <b>17.</b> 1 · <b>18.</b> 1 · <b>19.</b> 180° · <b>20.</b> 0,5 · <b>21.</b> 27 · <b>22.</b> 3 · <b>23.</b> 8 · <b>24.</b> la somme de ses chiffres l'est · <b>25.</b> 4x²−12x+9 · <b>26.</b> 24 · <b>27.</b> x = 7 ou x = −7 · <b>28.</b> −4 % · <b>29.</b> 1 · <b>30.</b> parallèles · <b>31.</b> aucune solution · <b>32.</b> 3.</div></details>
+  ✔ 28–32 : au top 🎉 · 16–27 : revois les fiches · &lt;16 : reprends depuis J-15.</div>
 </div></details>
 
 </main>
@@ -378,5 +400,29 @@
 
 <footer>📲 Astuce : <b>Partager → « Sur l'écran d'accueil »</b> pour l'ouvrir comme une appli, même hors-ligne.<br><a class="top" href="#">↑ Haut de page</a></footer>
 
+
+<script>
+(function(){
+ var root=document.getElementById('mq'); if(!root) return;
+ var qs=[].slice.call(root.querySelectorAll('.q'));
+ var total=qs.length, stat=document.getElementById('qnums'), bar=document.getElementById('qbar');
+ function up(){
+  var a=0,c=0;
+  qs.forEach(function(q){
+   var sel=q.querySelector('input:checked');
+   q.classList.remove('gd','bd');
+   q.querySelectorAll('label').forEach(function(l){l.classList.remove('pick');});
+   if(sel){a++; var ok=sel.hasAttribute('data-ok'); if(ok)c++;
+     q.classList.add(ok?'gd':'bd'); sel.closest('label').classList.add('pick');}
+  });
+  var p=a?Math.round(c/a*100):0;
+  stat.innerHTML=' — <b>'+a+'/'+total+'</b> répondues · <b>'+c+'</b> justes · <b>'+p+'%</b>';
+  bar.style.width=(a/total*100)+'%';
+  var cond={b8:a>=8,b16:a>=16,ball:a>=total,s75:a>=8&&p>=75,exp:a>=16&&p>=90,hero:a>=total&&p>=90};
+  document.querySelectorAll('#mq .bdg').forEach(function(b){b.classList.toggle('earned',!!cond[b.dataset.b]);});
+ }
+ root.addEventListener('change',up); up();
+})();
+</script>
 </body>
 </html>
